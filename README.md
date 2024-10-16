@@ -15,12 +15,16 @@ Redis caching has been used to reduce database load for frequent balance checks.
 
 Cache is invalidated when balance changes and transactions are updated to ensure data consistency.
 
-### Technologies Used
+### Technologies used
 - ASP.NET Core
 - Entity Framework Core
 - SQL Server
 - Redis
 - MediatR
+
+### Scalability
+- Containerization with Docker: Each component (wallet service, database, caching) is containerized, making it easy to replicate and scale horizontally across multiple containers.
+- Caching Layer: Redis is used for caching, reducing database load and improving read performance, which helps with handling increased traffic.
 
 ### Future improvements 
 - Add UTs and integration tests
