@@ -23,8 +23,8 @@ Cache is invalidated when balance changes and transactions are updated to ensure
 - MediatR
 
 ### Scalability
-- Containerization with Docker: Each component (wallet service, database, caching) is containerized, making it easy to replicate and scale horizontally across multiple containers.
-- Caching Layer: Redis is used for caching, reducing database load and improving read performance, which helps with handling increased traffic.
+- **Containerization with Docker**: Each component (wallet service, database, caching) is containerized, making it easy to replicate and scale horizontally across multiple containers.
+- **Caching Layer**: Redis is used for caching, reducing database load and improving read performance, which helps with handling increased traffic.
 
 ### Future improvements 
 - Add UTs and integration tests
@@ -79,7 +79,6 @@ Once the services are running, you can access the Wallet API through the specifi
 
 - `http://localhost:5023`
 
-You can access the Wallet API Swagger using the following link:
 You can access the Wallet API Swagger using the following link:
 
 - `http://localhost:5023/swagger/index.html`
