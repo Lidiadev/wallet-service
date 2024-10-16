@@ -13,7 +13,7 @@ This project follows Clean Architecture principles:
 ### Caching Strategy
 Redis caching has been used to reduce database load for frequent balance checks.
 
-Cache is invalidated when balance changes or transactions are updated to ensure data consistency.
+Cache is invalidated when balance changes and transactions are updated to ensure data consistency.
 
 ### Technologies Used
 - ASP.NET Core
