@@ -3,6 +3,7 @@ Thw Wallet Service is designed to handle funds for users in a sports betting pla
 It provides functionality for creating wallets, adding and removing funds, and checking the wallet state. 
 
 ### Key Components
+This project follows Clean Architecture principles:
 
 - **API Layer**: RESTful API endpoints for client interaction.
 - **Application Layer**: Contains command and query handlers.
