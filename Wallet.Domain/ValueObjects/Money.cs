@@ -14,15 +14,11 @@ public class Money : IEquatable<Money>
         Amount = amount;
     }
 
-    public static Money operator +(Money left, Money right)
-    {
-        return new Money(left.Amount + right.Amount);
-    }
+    public static Money operator +(Money left, Money right) => 
+        new(left.Amount + right.Amount);
 
-    public static Money operator -(Money left, Money right)
-    {
-        return new Money(left.Amount - right.Amount);
-    }
+    public static Money operator -(Money left, Money right) => 
+        new(left.Amount - right.Amount);
 
     public bool Equals(Money? other)
     {
@@ -41,8 +37,6 @@ public class Money : IEquatable<Money>
         return Equals((Money)obj);
     }
 
-    public override int GetHashCode()
-    {
-        return Amount.GetHashCode();
-    }
+    public override int GetHashCode() => 
+        Amount.GetHashCode();
 }

@@ -11,16 +11,9 @@ public class CreateWalletCommandHandler(IWalletRepository walletRepository) : IR
     public async Task<Guid> Handle(CreateWalletCommand request, CancellationToken cancellationToken)
     {
         var wallet = Domain.Entities.Wallet.Create(request.UserId);
-        
-        try
-        {
-            var createdWallet = await walletRepository.CreateAsync(wallet);
-            
-            return createdWallet.Id;
-        }
-        catch (DuplicateWalletException ex) 
-        {
-            throw;
-        }
+
+        var createdWallet = await walletRepository.CreateAsync(wallet);
+
+        return createdWallet.Id;
     }
 }

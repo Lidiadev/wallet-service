@@ -31,7 +31,7 @@ public class WalletContext(DbContextOptions<WalletContext> options) : DbContext(
     }
 }
 
-public class DiscountDbContextFactory : IDesignTimeDbContextFactory<WalletContext>
+public class WalletContextContextFactory : IDesignTimeDbContextFactory<WalletContext>
 {
     public WalletContext CreateDbContext(string[] args = null)
     {

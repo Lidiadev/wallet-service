@@ -39,36 +39,4 @@ public class RemoveFundsCommandHandler(
 
         return Unit.Value;
     }
-
-    // public async Task<Unit> Handle(RemoveFundsCommand request, CancellationToken cancellationToken)
-    // {
-    //     using var scope = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled);
-    //     
-    //     var existingTransaction = await _transactionRepository
-    //         .GetByProviderIdAndTransactionIdAsync(request.ProviderId, request.ProviderTransactionId);
-    //     
-    //     if (TransactionAlreadyProcessed(existingTransaction))
-    //     {
-    //         return Unit.Value;
-    //     }
-    //
-    //     var wallet = await _walletRepository.GetByIdWithLockAsync(request.WalletId);
-    //     if (wallet == null)
-    //     {
-    //         throw new NotFoundException(nameof(Wallet), request.WalletId);
-    //     }
-    //
-    //     wallet.RemoveFunds(new Money(request.Amount), request.ProviderId, request.ProviderTransactionId,
-    //         _dateTimeProvider.UtcNow);
-    //     await _walletRepository.UpdateAsync(wallet);
-    //     await _transactionRepository.CreateAsync(wallet.Transactions.Last());
-    //     scope.Complete();
-    //
-    //     await _cacheService.RemoveAsync($"wallet:{request.WalletId}");
-    //
-    //     return Unit.Value;
-    // }
-    //
-    // private static bool TransactionAlreadyProcessed(Domain.Entities.Transaction existingTransaction) =>
-    //     existingTransaction != null;
 }

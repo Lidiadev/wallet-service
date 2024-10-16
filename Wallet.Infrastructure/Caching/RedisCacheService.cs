@@ -4,18 +4,11 @@ using Wallet.Application.Interfaces;
 
 namespace Wallet.Infrastructure.Caching;
 
-public class RedisCacheService : ICacheService
+public class RedisCacheService(IDistributedCache distributedCache) : ICacheService
 {
-    private readonly IDistributedCache _distributedCache;
-
-    public RedisCacheService(IDistributedCache distributedCache)
-    {
-        _distributedCache = distributedCache;
-    }
-
     public async Task<T> GetOrSetAsync<T>(string key, Func<Task<T>> factory, TimeSpan? expiry = null)
     {
-        var cachedValue = await _distributedCache.GetStringAsync(key);
+        var cachedValue = await distributedCache.GetStringAsync(key);
         if (cachedValue != null)
         {
             return JsonConvert.DeserializeObject<T>(cachedValue);
@@ -28,7 +21,7 @@ public class RedisCacheService : ICacheService
 
     public async Task RemoveAsync(string key)
     {
-        await _distributedCache.RemoveAsync(key);
+        await distributedCache.RemoveAsync(key);
     }
 
     private async Task SetAsync<T>(string key, T value, TimeSpan? expiry = null)
@@ -39,6 +32,6 @@ public class RedisCacheService : ICacheService
             options.SetAbsoluteExpiration(expiry.Value);
         }
 
-        await _distributedCache.SetStringAsync(key, JsonConvert.SerializeObject(value), options);
+        await distributedCache.SetStringAsync(key, JsonConvert.SerializeObject(value), options);
     }
 }
