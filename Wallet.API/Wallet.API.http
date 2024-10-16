@@ -1,0 +1,6 @@
+@WalletAPI_HostAddress = http://localhost:5189
+
+GET {{WalletAPI_HostAddress}}/api/Wallets/
+Accept: application/json
+
+###

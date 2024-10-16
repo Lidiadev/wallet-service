@@ -1,0 +1,28 @@
+﻿services:
+  wallet.api:
+    image: wallet.api
+    build:
+      context: .
+      dockerfile: Wallet.API/Dockerfile
+    env_file:
+      - .env.local
+    ports:
+      - "5023:8080"
+    depends_on:
+      - db
+      - redis
+
+  db:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    env_file:
+      - .env.local
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=${SA_PASSWORD}
+    ports:
+      - "1433:1433"
+
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
