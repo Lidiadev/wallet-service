@@ -28,6 +28,7 @@ Cache is invalidated when balance changes and transactions are updated to ensure
 
 ### Future improvements 
 - Add UTs and integration tests
+- Add authorization 
 
 # Running the solution
 ## Prerequisites
