@@ -28,7 +28,8 @@ Cache is invalidated when balance changes and transactions are updated to ensure
 
 ### Future improvements 
 - Add UTs and integration tests
-- Add authorization 
+- Add authorization
+- Paginate transactions when getting the wallet.
 
 # Running the solution
 ## Prerequisites
